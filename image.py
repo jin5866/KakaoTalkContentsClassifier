@@ -8,10 +8,11 @@ def openandclassfy(root,file_name):
     jpg_head = bytes([0xff,0xd8])
     png_head = bytes([0x89,0x50,0x4e,0x47])
     gif_head = bytes([0x47,0x49,0x46])
+    mp4_head = bytes([0x66,0x74,0x79,0x70])
     file_path = os.path.join(root,file_name)
     
     f = open(file_path,'rb')
-    t = f.read(8)
+    t = f.read(20)
     des_path = ""
     if t[0:2] == jpg_head:
         #print("jpg")
@@ -21,9 +22,10 @@ def openandclassfy(root,file_name):
         des_path = os.path.join(out_dir,file_name+".png")
     elif t[0:3] == gif_head:
         des_path = os.path.join(out_dir,file_name+".gif")
-    else:
-        #print("mp4")
+    elif t[4:8] == mp4_head:
         des_path = os.path.join(out_dir,file_name+".mp4")
+    else:
+        des_path = os.path.join(out_dir,file_name+".txt")
     #print(des_path)
     if not os.path.isdir(out_dir):
         os.mkdir(out_dir)
