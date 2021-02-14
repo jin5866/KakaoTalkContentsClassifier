@@ -10,11 +10,17 @@ def openandclassfy(root,file_name):
     
     f = open(file_path,'rb')
     t = f.read(2)
-    des_path
+    des_path = ""
     if t == jpg_head:
-        print("jpg")
-        des_path = os.path.join(out_dir,file_name)
+        #print("jpg")
+        des_path = os.path.join(out_dir,file_name+".jpg")
+    else:
+        #print("mp4")
+        des_path = os.path.join(out_dir,file_name+".mp4")
+    print(des_path)
 
+    
+    
 if __name__ == "__main__":
     root_dir = "./contents/"
     for (root, dirs, files) in os.walk(root_dir):
