@@ -1,0 +1,9 @@
+# 카톡 contents 파일 분류기
+
+## 용도
+* /android/data/com.kakao.talk/contents 파일을 타입별로 분류해서 복사
+
+## 사용법
+* /android/data/com.kakao.talk/contents 를 복사.
+* image.py 와 같은폴더에 contents 폴더를 두기.
+* python image.py
